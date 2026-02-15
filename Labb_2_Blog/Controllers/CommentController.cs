@@ -17,9 +17,9 @@ namespace Labb_2_Blog.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> AddComment(AddCommentDTO dto, int userId)
+        public async Task<IActionResult> AddComment(AddCommentDTO dto)
         {
-            var ok = await _commentService.AddCommentAsync(dto, userId);
+            var ok = await _commentService.AddCommentAsync(dto);
 
             if (!ok)
             {

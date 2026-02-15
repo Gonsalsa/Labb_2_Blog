@@ -8,6 +8,10 @@ namespace Labb_2_Blog.Core.Services
     {
         private readonly ICategoryRepo _categoryRepo;
 
+        public CategoryService (ICategoryRepo categoryRepo)
+        {
+            _categoryRepo = categoryRepo;
+        }
 
         public async Task<bool> AddCategoryAsync(Category category)
         {

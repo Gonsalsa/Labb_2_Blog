@@ -16,7 +16,7 @@ namespace Labb_2_Blog.Core.Services
             _postRepo = postRepo;
         }
 
-        public async Task<bool> AddCommentAsync(AddCommentDTO dto, int userID)
+        public async Task<bool> AddCommentAsync(AddCommentDTO dto)
         {
             if (dto == null)
             {
@@ -30,7 +30,7 @@ namespace Labb_2_Blog.Core.Services
                 return false;
             }
 
-            if (post.BlogPostId == userID)
+            if (post.AuthorId == dto.CommentAuthorId)
             {
                 return false;
             }
@@ -39,7 +39,7 @@ namespace Labb_2_Blog.Core.Services
             {
                 CommentContent = dto.CommentContent,
                 PostId = dto.BlogPostId,
-                UserId = userID
+                UserId = dto.CommentAuthorId
             };
 
             await _commentRepo.AddCommentAsync(comment);

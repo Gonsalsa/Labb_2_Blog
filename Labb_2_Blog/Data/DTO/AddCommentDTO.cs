@@ -4,5 +4,6 @@
     {
         public string? CommentContent { get; set; }
         public int BlogPostId { get; set; }
+        public int CommentAuthorId { get; set; }
     }
 }

@@ -6,7 +6,7 @@ namespace Labb_2_Blog.Core.Interface
     public interface IBlogPostService
     {
         //C - Create
-        Task<bool> AddBlogPostAsync(AddPostDTO dto, int userID);
+        Task<bool> AddBlogPostAsync(AddPostDTO dto);
 
         //R - Read
         Task<List<BlogPost>> GetBlogPostsAsync();

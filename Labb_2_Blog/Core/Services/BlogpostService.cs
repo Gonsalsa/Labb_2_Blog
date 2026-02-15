@@ -14,9 +14,9 @@ namespace Labb_2_Blog.Core.Services
             _blogPostRepo = blogPostRepo;
         }
 
-        public async Task<bool> AddBlogPostAsync(AddPostDTO dto, int userID)
+        public async Task<bool> AddBlogPostAsync(AddPostDTO dto)
         {
-            if (dto == null || userID <= 0)
+            if (dto == null)
             {
                 return false;
             }
@@ -25,7 +25,7 @@ namespace Labb_2_Blog.Core.Services
             {
                 BlogPostTitle = dto.Title,
                 BlogPostContent = dto.Content,
-                AuthorId = userID,
+                AuthorId = dto.AuthorId,
                 CategoryId = dto.CategoryId
             };
 

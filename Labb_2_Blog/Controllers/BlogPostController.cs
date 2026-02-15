@@ -39,9 +39,9 @@ namespace Labb_2_Blog.Controllers
 
         [HttpPost]
 
-        public async Task<IActionResult> AddBlogPost(AddPostDTO dtp, int authorId)
+        public async Task<IActionResult> AddBlogPost(AddPostDTO dtp)
         {
-            var ok = await _blogPostService.AddBlogPostAsync(dtp, authorId);
+            var ok = await _blogPostService.AddBlogPostAsync(dtp);
 
             if (!ok)
             {
