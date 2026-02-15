@@ -1,3 +1,5 @@
+using Labb_2_Blog.Context;
+using Microsoft.EntityFrameworkCore;
 using Scalar.AspNetCore;
 
 namespace Labb_2_Blog
@@ -11,6 +13,9 @@ namespace Labb_2_Blog
             builder.Services.AddControllers();
 
             builder.Services.AddOpenApi();
+
+            builder.Services.AddDbContext<AppDbContext>(options => 
+                options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 
             var app = builder.Build();
